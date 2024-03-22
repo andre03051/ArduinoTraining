@@ -12,7 +12,8 @@ CREATE TABLE Sensors (
 CREATE TABLE SensorReadings (
     Reading_ID INT AUTO_INCREMENT PRIMARY KEY,
     Sensor_ID INT,
-    Reading FLOAT NOT NULL,
+    MeanReading FLOAT NOT NULL,
+    MedianReading FLOAT NOT NULL,
     Timestamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     FOREIGN KEY (Sensor_ID) REFERENCES Sensors(Sensor_ID)
 );

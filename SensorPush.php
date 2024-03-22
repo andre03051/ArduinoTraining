@@ -14,22 +14,27 @@ $password = "XGap5HZ8V9";
 $dbname = "sql5692834";
 
 // Create connection
-$conn = new mysqli($servername, $username, $password, $dbname);
+$conn = new mysqli($db_host, $db_username, $db_password, $db_name);
 
 // Check connection
 if ($conn->connect_error) {
-  die("Connection failed: " . $conn->connect_error);
+    die("Connection failed: " . $conn->connect_error);
 }
 
-// Get data from Arduino
-$data = $_GET['data'];
+// Get data from POST request
+$sensor_id = $_POST['sensor_id'];
+$mean = $_POST['mean'];
+$median = $_POST['median'];
+$timestamp = $_POST['timestamp'];
 
 // Insert data into database
-$sql = "INSERT INTO your_table (column_name) VALUES ($data)";
+$sql = "INSERT INTO SensorReadings (Sensor_ID, MeanReading, MedianReading, Timestamp)
+VALUES ('$sensor_id', '$mean', '$median', '$timestamp')";
+
 if ($conn->query($sql) === TRUE) {
-  echo "New record created successfully";
+    echo "New record created successfully";
 } else {
-  echo "Error: " . $sql . "<br>" . $conn->error;
+    echo "Error: " . $sql . "<br>" . $conn->error;
 }
 
 $conn->close();
