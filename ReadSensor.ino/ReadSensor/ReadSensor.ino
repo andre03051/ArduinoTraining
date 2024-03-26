@@ -47,8 +47,6 @@ void loop() {
     Serial.print("sensor_id=1&mean=");
     Serial.print(mean);
     Serial.print("&median=");
-    Serial.print(median);
-    Serial.print("&timestamp=");
-    Serial.println(millis());
+    Serial.println(median);
   }
 }
