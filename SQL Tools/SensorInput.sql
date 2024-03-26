@@ -1,0 +1,1 @@
+INSERT INTO `Sensors`(`Sensor_ID`,`Sensor_Name`,`Sensor_Type`,`Sensor_Units`) VALUES(1,'ArduinoRandom','ArduinoRandom','bits');
